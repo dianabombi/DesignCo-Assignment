@@ -6,3 +6,6 @@ __DESIGNCO ASSIGNMENT__
 MERN Stack
 JWT = json web token for secure authentication - in section middleware
 
+2. components structure
+- code is designed in separated components (modules), 
+in order to be able to reuse the components according individual needs
