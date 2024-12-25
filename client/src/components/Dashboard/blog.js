@@ -29,16 +29,14 @@ function Blog() {
     setPost({ ...post, [name]: value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     if (post.title && post.date && post.content) {
       try {
-        const response = await axios.post("http://localhost:8000/blog", post);
-        setSubmittedPosts([...submittedPosts, response.data]);
-        setPost({
-            title: "",
-            date: "",
-            content: ""
-        }); 
+        await axios.post("http://localhost:8000/blog", post);
+        const response = await axios.get("http://localhost:8000/blog");
+        setSubmittedPosts(response.data); 
       } catch (error) {
         console.error("Error creating post:", error);
         alert("Failed to save post to database.");
@@ -54,6 +52,13 @@ function Blog() {
   };
 
   const handleDelete = async (index) => {
+    const confirmDelete = window.confirm(
+        "Are you sure you want to delete this post? This action cannot be undone."
+      );
+    
+      if (!confirmDelete) {
+        return; 
+      }
     try {
       const postId = submittedPosts[index]._id;
       if (!postId) throw new Error("Post ID is missing.");
@@ -83,7 +88,7 @@ function Blog() {
         date: "",
         content: ""
       });
-      setEditIndex(null);
+    //   setEditIndex(null);
     } catch (error) {
       console.error("Error updating post:", error);
       alert("Failed to update post.");
