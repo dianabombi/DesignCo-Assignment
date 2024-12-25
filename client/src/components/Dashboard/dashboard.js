@@ -5,14 +5,12 @@ import Sidebar from './sidebar';
 import Blog from './blog';
 
 function Dashboard() {
-  const [posts, setPosts] = useState([]);
-
-
+  
   return (
     <div>
       <Header />
       <Sidebar />
-      <Blog posts={posts}/>
+      <Blog />
     </div>
   )
 }
