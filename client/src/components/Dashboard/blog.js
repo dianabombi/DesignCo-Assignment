@@ -5,8 +5,7 @@ function Blog() {
   const [post, setPost] = useState({
     title: "",
     date: "",
-    content: "",
-    author: "",
+    content: ""
   });
 
   const [editIndex, setEditIndex] = useState(null); 
@@ -31,16 +30,15 @@ function Blog() {
   };
 
   const handleSubmit = async () => {
-    if (post.title && post.date && post.content && post.author) {
+    if (post.title && post.date && post.content) {
       try {
         const response = await axios.post("http://localhost:8000/blog", post);
         setSubmittedPosts([...submittedPosts, response.data]);
         setPost({
-          title: "",
-          date: "",
-          content: "",
-          author: "",
-        });
+            title: "",
+            date: "",
+            content: ""
+        }); 
       } catch (error) {
         console.error("Error creating post:", error);
         alert("Failed to save post to database.");
@@ -71,11 +69,10 @@ function Blog() {
     }
   };
   
-
   const handleUpdate = async () => {
     try {
       const postId = submittedPosts[editIndex]._id;
-      const response = await axios.put(`http://localhost:8000/${postId}`, post);
+      const response = await axios.put(`http://localhost:8000/blog/${postId}`, post);
 
       const updatedPosts = [...submittedPosts];
       updatedPosts[editIndex] = response.data;
@@ -84,8 +81,7 @@ function Blog() {
       setPost({
         title: "",
         date: "",
-        content: "",
-        author: "",
+        content: ""
       });
       setEditIndex(null);
     } catch (error) {
@@ -119,13 +115,13 @@ function Blog() {
           value={post.content}
           onChange={handleChange}
         />
-        <input
+        {/* <input
           type="text"
           name="author"
           placeholder="author"
           value={post.author}
           onChange={handleChange}
-        />
+        /> */}
         {editIndex === null ? (
           <button onClick={handleSubmit}>CREATE A POST</button>
         ) : (
@@ -145,9 +141,7 @@ function Blog() {
               <p>
                 <strong>Content:</strong> {p.content}
               </p>
-              <p>
-                <strong>Author:</strong> {p.author}
-              </p>
+            
               <button onClick={() => handleEdit(index)}>Edit</button>
               <button onClick={() => handleDelete(index)}>Delete</button>
               <hr />

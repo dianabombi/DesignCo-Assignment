@@ -9,10 +9,10 @@ const {
     deleteBlog
 } = require ("../controllers/blog.controller");
 
-router.get("/blog", getAllBlogs);
+router.get("/", getAllBlogs);
 router.get("/:id", getBlogById);
 router.put("/:id", updateBlog);
-router.post("/create", createBlog);
+router.post("/", createBlog);
 router.delete("/:id", deleteBlog);
 
 module.exports = router;

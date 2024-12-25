@@ -10,10 +10,12 @@ const port = 8000;
 app.use(express.json());
 app.use(cors()); // because backend and frontend are running on different ports (cross-origin requests)
 
+const blogRouter = require("./routes/blog.routes");
+app.use("/blog", blogRouter);
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 });
-
 
 const startServer = async () => {
   try {
