@@ -8,6 +8,7 @@ __1. TECHNOLOGIES USED__
 For building this Application, below mentioned technology stack has been used:
 MERN Stack
 JWT = json web token for secure authentication - in section middleware
+BCRYPT = hashing passwords before saving them to the database
 
 __2. STRUCTURE__
 - code is designed in separated components (modules), 
