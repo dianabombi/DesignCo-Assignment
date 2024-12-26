@@ -47,8 +47,10 @@ function Blog() {
   };
 
   const handleEdit = (index) => {
-    setPost(submittedPosts[index]);
+    const selectedPost = { ...submittedPosts[index] };
+    setPost(selectedPost);
     setEditIndex(index);
+
   };
 
   const handleDelete = async (index) => {
@@ -88,7 +90,7 @@ function Blog() {
         date: "",
         content: ""
       });
-    //   setEditIndex(null);
+      setEditIndex(null);
     } catch (error) {
       console.error("Error updating post:", error);
       alert("Failed to update post.");

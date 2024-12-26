@@ -15,7 +15,7 @@ __2. STRUCTURE__
 in order to be able to reuse the components according individual needs
 
 __3. STYLING__
-- tailwind/bootstrap
+- pure css for more "freedom" + bootstrap
 
 __4. BLOG__
 Blog part = understand post section, where you can create the interesting post of listing some interesting article 

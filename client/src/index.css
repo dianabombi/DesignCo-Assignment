@@ -1,0 +1,18 @@
+/* STYLING OF SINGLE COMPONENTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rubik+Vinyl&display=swap');
+
+
+.home-page-h1 {
+    font-family: "Rubik Vinyl", serif;
+    font-weight: 300;
+    font-size: 5rem; 
+    font-style: normal;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10rem;
+
+  }
+  
