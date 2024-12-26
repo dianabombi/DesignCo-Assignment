@@ -36,22 +36,26 @@ const login = async (req, res) => {
 const register = async (req, res) => {
     try {
         let {name, surname, username, email, password, password2} = req.body;
-        if (!name || !surname || !username || !email || !password || !password2)
+        if (!name || !surname || !username || !email || !password || !password2) {
         return res.send ({message: "You have to fill in all information required", status: false});
+        }
 
         let oldUser = await User.findOne({email});
-        if (oldUser)
-        return res.send({message: "User is already registered, please login or sign up with new email."});
-        let hashedPassword = await bcrypt.hash(password, +process.env.SALT_ROUND);
+        if (oldUser) {
+            alert("User is already registered, please login or sign up with new email.");
+        return res.status(400).send({message: "User is already registered, please login or sign up with new email."});
+        }
+
+        const hashedPassword = await bcrypt.hash(password, +process.env.SALT_ROUND);
+        
         await User.create({
-            firstName,
+            name,
             surname,
             username,
             email,
             password: hashedPassword,
-            password2: hashedPassword
         });
-            return res.send({message: "Registered successfully", status: true});
+            return res.status(201).send({message: "Registered successfully", status: true});
         } catch (error) {  
             return res.status(500).send({message:"Internal server error", error, status: false})
     }
