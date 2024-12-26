@@ -45,7 +45,7 @@ function Register() {
         password2
       });
 
-      if (response.data.success) {
+      if (response.data.status) {
         alert("Registration successful!");
         navigate("/login"); 
       } else {
