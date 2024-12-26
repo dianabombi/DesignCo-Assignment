@@ -13,6 +13,9 @@ app.use(cors()); // because backend and frontend are running on different ports 
 const blogRouter = require("./routes/blog.routes");
 app.use("/blog", blogRouter);
 
+const userRouter = require("./routes/user.routes");
+app.use("/users", userRouter);
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 });

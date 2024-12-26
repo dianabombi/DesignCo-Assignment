@@ -17,22 +17,31 @@ function NavBar() {
         navigate("/blog");
       };
 
+      const redirectToCommunities = () => {
+        navigate("/communities");
+      };
+
   return (
     <div className="nav-bar-styling">
         <button 
             className='button-navbar'
             onClick={redirectToBlog}
-            >News in Community</button>
+            >What's new</button>
         
         <button 
             className='button-navbar'
-            onClink={redirectToRegister}
+            onClick={redirectToRegister}
             >Register</button>
         
         <button 
             className='button-navbar'
             onClick={redirectToLogin}>
                 Login</button>
+
+        <button 
+            className='button-navbar'
+            onClick={redirectToCommunities}>
+        Find your community</button>
     </div>
   )
 }
