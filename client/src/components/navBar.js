@@ -2,10 +2,11 @@ import React from 'react'
 
 function NavBar() {
   return (
-    <div>
-      <button>Login</button>
-      <button>Login</button>
-      <button>Login</button>
+    <div className="nav-bar-styling">
+        <button className='button-navbar'>News in Community</button>
+        <button className='button-navbar'>Register</button>
+        <button className='button-navbar'>Login</button>
+        
     </div>
   )
 }
