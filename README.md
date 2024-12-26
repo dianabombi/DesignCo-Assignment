@@ -3,9 +3,12 @@
 __DESIGNCO ASSIGNMENT__
 ____________________
 
-__1. TECHNOLOGIES USED__
+This app is gathering Community services and interests in your area. Everyone from community is able to participate by posting the article or some interesting event organized around.
 
+
+__1. TECHNOLOGIES USED__
 For building this Application, below mentioned technology stack has been used:
+
 MERN Stack
 JWT = json web token for secure authentication - in section middleware
 BCRYPT = hashing passwords before saving them to the database
