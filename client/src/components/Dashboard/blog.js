@@ -5,6 +5,7 @@ function Blog() {
   const [post, setPost] = useState({
     title: "",
     date: "",
+    category:"",
     content: ""
   });
 
@@ -116,7 +117,26 @@ function Blog() {
           value={post.date}
           onChange={handleChange}
         />
+
+        <select
+          name="category"
+          value={post.category}
+          onChange={handleChange}>
+           <option value="default" disabled>
+            Select Category
+            </option>
+
+            <option value="event">Event</option>
+            <option value="discussion">Discussion</option>
+            <option value="provide help">Provide help</option>
+            <option value="request help">Request help</option>
+            <option value="sports">Sports</option>
+            <option value="creative event">Creative event</option>
+            <option value="volunteering">Volunteering</option>
+      </select>
+
         <textarea
+          type="text"
           name="content"
           placeholder="content"
           value={post.content}
@@ -147,6 +167,10 @@ function Blog() {
               </p>
               <p>
                 <strong>Content:</strong> {p.content}
+              </p>
+
+              <p>
+                <strong>Category:</strong> {p.category}
               </p>
             
               <button onClick={() => handleEdit(index)}>Edit</button>
