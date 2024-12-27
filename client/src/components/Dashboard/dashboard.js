@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
 import Header from './header';
 import Sidebar from './sidebar';
+import Categories from './categories';
 import Blog from './blog';
 
 function Dashboard() {
@@ -10,6 +10,7 @@ function Dashboard() {
     <div>
       <Header />
       <Sidebar />
+      <Categories />
       <Blog />
     </div>
   )

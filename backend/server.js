@@ -20,6 +20,19 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 });
 
+// API endpoint for category filtering
+app.get("/blogs", async (req, res) => {
+  const { category } = req.query;
+  const filter = category ? { category } : {};
+  try {
+    const blogs = await Blog.find(filter);
+    res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch blogs" });
+  }
+});
+
+
 const startServer = async () => {
   try {
     await databaseConnection();  // Wait for the database connection
