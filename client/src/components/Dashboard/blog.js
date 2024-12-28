@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Blog() {
   const [post, setPost] = useState({
@@ -13,6 +14,9 @@ function Blog() {
   const [submittedPosts, setSubmittedPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [filterCategory, setFilterCategory] = useState("");
+  const [selectedPost, setSelectedPost] = useState(null);
+  const navigate = useNavigate(); 
+  
 
   // Fetch posts from the backend on load
   useEffect(() => {
@@ -121,6 +125,13 @@ function Blog() {
     }
   };
 
+  const handleReadMore = (selectedPost) => {
+    setSelectedPost(selectedPost); 
+    console.log(post)
+    navigate(`/dashboard/blog/${selectedPost._id}`);
+  };
+
+
   return (
     <div>
       <h1>{editIndex === null ? "Create a Post" : "Edit Post"}</h1>
@@ -159,7 +170,7 @@ function Blog() {
           name="content"
           placeholder="content"
           value={post.content}
-          onChange={handleChange}
+          onChange={(e) => setPost({ ...post, content: e.target.value })}
         />
         {editIndex === null ? (
           <button onClick={handleSubmit}>CREATE A POST</button>
@@ -186,7 +197,7 @@ function Blog() {
         <div>
           <h2>Posts</h2>
           {filteredPosts.map((p, index) => (
-            <div key={index}>
+            <div key={p._id}>
               <h3>{p.title}</h3>
               <p>
                 <strong>Date:</strong> {p.date}
@@ -198,6 +209,9 @@ function Blog() {
                 <strong>Category:</strong> {p.category}
               </p>
 
+              <button onClick={() => handleReadMore(p._id)}>
+                    Read Full Article
+              </button>
               <button onClick={() => handleEdit(index)}>Edit</button>
               <button onClick={() => handleDelete(index)}>Delete</button>
               <hr />

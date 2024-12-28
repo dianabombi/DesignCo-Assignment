@@ -4,7 +4,7 @@ import Register from "./components/register";
 import Dashboard from "./components/Dashboard/dashboard";
 import Blog from "./components/Dashboard/blog";
 import Homepage from "./components/homepage";
-import Communities from "./components/communities";
+import ArticleDetail from "./components/articleDetail";
 
 import './index.css';
 
@@ -18,7 +18,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="/dashboard" element={<Dashboard />}/>
           <Route path="/blog" element={<Blog />}/>
-          <Route path="/communities" element={<Communities />}/>
+          <Route path="/dashboard/blog/:_id" element={<ArticleDetail />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -11,7 +11,8 @@ const getAllBlogs = async (req, res) => {
 
 const getBlogById = async (req, res) => {
   try {
-    let blog = await Blog.findOne({ _id: req.params.id });
+    const { id } = req.params;
+    let blog = await Blog.findById(id);
     if (!blog) {
       return res.status(404).send({ msg: "Blog not found" });
     }
