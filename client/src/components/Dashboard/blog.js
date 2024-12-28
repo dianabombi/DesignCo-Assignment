@@ -125,10 +125,10 @@ function Blog() {
     }
   };
 
-  const handleReadMore = (selectedPost) => {
-    setSelectedPost(selectedPost); 
+  const handleReadMore = (post) => {
+    setSelectedPost(post); 
     console.log(post)
-    navigate(`/dashboard/blog/${selectedPost._id}`);
+    navigate(`/dashboard/blog/${post._id}`);
   };
 
 
