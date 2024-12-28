@@ -10,7 +10,7 @@ const {
 } = require ("../controllers/blog.controller");
 
 router.get("/", getAllBlogs);
-router.get("/blog/:_id", getBlogById);
+router.get("/blog/:id", getBlogById);
 router.put("/:id", updateBlog);
 router.post("/", createBlog);
 router.delete("/:id", deleteBlog);

@@ -125,12 +125,14 @@ function Blog() {
     }
   };
 
-  const handleReadMore = (post) => {
-    setSelectedPost(post); 
-    console.log(post)
-    navigate(`/dashboard/blog/${post._id}`);
+  const handleReadMore = (_id) => {
+    if (_id) {
+      console.log("Navigating to post with ID:", _id);
+      navigate(`/dashboard/blog/${_id}`);
+    } else {
+      console.error("Post ID is undefined. Cannot navigate.");
+    }
   };
-
 
   return (
     <div>
@@ -195,7 +197,7 @@ function Blog() {
 
       {filteredPosts.length > 0 ? (
         <div>
-          <h2>Posts</h2>
+          <h2>TRENDING</h2>
           {filteredPosts.map((p, index) => (
             <div key={p._id}>
               <h3>{p.title}</h3>

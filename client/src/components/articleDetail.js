@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Blog from "./Dashboard/blog";
-
 
 function ArticleDetail() {
 
@@ -19,7 +17,7 @@ function ArticleDetail() {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/dashboard/blog/${_id}`);
+        const response = await axios.get(`http://localhost:8000/blog/${_id}`);
         setBlog(response.data);
       } catch (error) {
         console.error("Error fetching article:", error);

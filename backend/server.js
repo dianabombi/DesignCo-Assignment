@@ -16,7 +16,7 @@ app.use("/blog", blogRouter);
 const userRouter = require("./routes/user.routes");
 app.use("/users", userRouter);
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Hello World!')
 });
 
