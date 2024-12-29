@@ -58,9 +58,11 @@ function Register() {
   };
 
   return (
-    <div>
-      <h1>You don't have an account, yet? </h1>
-      <h3>Register here:</h3>
+    <div className="register-page">
+      <div className="register-form">
+      <h2>You aren't registered yet? </h2>
+      <p>Register here</p>
+      
       <input 
         type="text" 
         placeholder="Name"
@@ -108,6 +110,7 @@ function Register() {
         onChange={handleChange}/>
       
       <button onClick={handleRegister}>REGISTER</button>
+      </div>
     </div>
   )
 }

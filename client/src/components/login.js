@@ -31,8 +31,11 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login-container">
+
+      <div className ="login-form">
       <h2>Login Page</h2>
+      {error && <p className="error-message">{error}</p>}
       <input 
         type="text"
         name="email"
@@ -50,6 +53,7 @@ function Login() {
         />
 
       <button onClick={handleLogin}>Log In</button>
+      </div>
     </div>
   );
 }
