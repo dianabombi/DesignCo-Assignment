@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard/dashboard";
 import Blog from "./components/Dashboard/blog";
 import Homepage from "./components/homepage";
 import ArticleDetail from "./components/articleDetail";
+import ProtectedRoute from "./components/protectedRoutes";
 
 import './index.css';
 
@@ -16,9 +17,34 @@ function App() {
           <Route path="/" element={<Homepage />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register/>}/>
-          <Route path="/dashboard" element={<Dashboard />}/>
-          <Route path="/blog" element={<Blog />}/>
-          <Route path="/dashboard/me" element={<Dashboard />} />
+
+        
+          <Route 
+              path="/dashboard" 
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              } />
+          
+
+          <Route 
+            path="/blog" 
+            element={
+                <ProtectedRoute>
+                  <Blog />
+                </ProtectedRoute>
+              } />
+
+          <Route
+            path="/dashboard/me"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="/dashboard/blog/:id" element={<ArticleDetail />} />
         </Routes>
       </BrowserRouter>

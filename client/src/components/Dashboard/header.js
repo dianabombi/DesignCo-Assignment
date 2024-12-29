@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function Header() {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState(""); // SearchBar initial state
 
   const handleSearchChange = (event) => {
