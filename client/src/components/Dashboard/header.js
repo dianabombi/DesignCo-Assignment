@@ -14,14 +14,14 @@ function Header() {
   };
 
   const data = [
-    "Apple",
-    "Banana",
-    "Orange",
-    "Pineapple",
-    "Mango",
-    "Strawberry",
-    "Blueberry",
-  ]; // Replace with actual content
+    "Event",
+    "Volunteering",
+    "Discussion",
+    "Provide Help",
+    "Request Help",
+    "Sports",
+    "Creative Event",
+  ]; 
 
   const filteredData = data.filter((item) =>
     item.toLowerCase().includes(searchTerm.toLowerCase())
