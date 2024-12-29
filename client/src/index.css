@@ -124,3 +124,102 @@ body, html {
   max-width: 300px;
   height: 500px;
 }
+
+/* POSTS */
+
+/* Container for the posts */
+.posts-container {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual post card */
+.post-card {
+  background-color: #ffffff;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Post title */
+.post-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  color: #333333;
+}
+
+/* Post details */
+.post-card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #555555;
+}
+
+.post-card strong {
+  color: #333333;
+}
+
+/* Buttons container */
+.post-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Buttons styling */
+.post-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-actions button:hover {
+  opacity: 0.9;
+}
+
+.post-actions button:first-child {
+  background-color: #133E87; 
+  color: #ffffff;
+}
+
+.post-actions button:nth-child(2) {
+  background-color: #EC8305; 
+  color: #333333;
+}
+
+.post-actions button:nth-child(3) {
+  background-color: #f44336; 
+  color: #ffffff;
+}
+
+/* Trending section header */
+.posts-container h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #333333;
+  text-align: center;
+  border-bottom: 2px solid #dddddd;
+  padding-bottom: 0.5rem;
+}
+
+/* Divider between posts */
+hr {
+  border: none;
+  border-top: 1px solid #dddddd;
+  margin: 1.5rem 0;
+}

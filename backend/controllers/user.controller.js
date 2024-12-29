@@ -61,5 +61,32 @@ const register = async (req, res) => {
     }
 };
 
+// _____ GET USER DETAILS (DASHBOARD) _____
+const getMe = async (req, res) => {
+    const token = req.headers.authorization?.split(" ")[1]; 
+    if (!token) {
+        return res.status(401).send({ message: "No token provided. Authorization denied." });
+    }
 
-module.exports = {login, register};
+    try {
+        const decoded = jwt.verify(token, +process.env.SECRET_KEY); 
+        const user = await User.findById(decoded.userId).select("-password"); // password excluded from User object with method "select"
+        if (!user) {
+            return res.status(404).send({ message: "User not found." });
+        }
+
+        return res.send({
+            message: "User details fetched successfully.",
+            user: {
+                name: user.name,
+                surname: user.surname,
+                email: user.email,
+            },
+        });
+    } catch (error) {
+        return res.status(500).send({ message: "Server error.", error });
+    }
+};
+
+
+module.exports = {login, register, getMe};

@@ -196,10 +196,11 @@ function Blog() {
       </div>
 
       {filteredPosts.length > 0 ? (
-        <div>
+
+        <div className="posts-container">
           <h2>TRENDING</h2>
           {filteredPosts.map((p, index) => (
-            <div key={p._id}>
+            <div key={p._id} className="post-card">
               <h3>{p.title}</h3>
               <p>
                 <strong>Date:</strong> {p.date}
@@ -211,12 +212,14 @@ function Blog() {
                 <strong>Category:</strong> {p.category}
               </p>
 
+              <div className="post-actions">
               <button onClick={() => handleReadMore(p._id)}>
                     Read Full Article
               </button>
               <button onClick={() => handleEdit(index)}>Edit</button>
               <button onClick={() => handleDelete(index)}>Delete</button>
               <hr />
+              </div>
             </div>
           ))}
         </div>
