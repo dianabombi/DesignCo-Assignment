@@ -6,6 +6,7 @@ import Blog from "./components/Dashboard/blog";
 import Homepage from "./components/homepage";
 import ArticleDetail from "./components/articleDetail";
 import ProtectedRoute from "./components/protectedRoutes";
+import Trending from "./components/Dashboard/trending";
 
 import './index.css';
 
@@ -46,6 +47,7 @@ function App() {
           />
 
           <Route path="/dashboard/blog/:id" element={<ArticleDetail />} />
+          <Route path="/trending" element={<Trending />} />
         </Routes>
       </BrowserRouter>
     </div>

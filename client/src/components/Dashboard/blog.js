@@ -93,10 +93,10 @@ function Blog() {
         post
       );
 
-      const updatedPosts = [...submittedPosts];
-      updatedPosts[editIndex] = response.data;
-      setSubmittedPosts(updatedPosts);
-      setFilteredPosts(updatedPosts);
+  const updatedPosts = [...submittedPosts];
+    updatedPosts[editIndex] = response.data;
+    setSubmittedPosts(updatedPosts);
+    setFilteredPosts(updatedPosts);
 
       setPost({
         title: "",
@@ -117,6 +117,7 @@ function Blog() {
 
     if (selectedCategory === "") {
       setFilteredPosts(submittedPosts); // Show all posts
+
     } else {
       const filtered = submittedPosts.filter(
         (post) => post.category === selectedCategory

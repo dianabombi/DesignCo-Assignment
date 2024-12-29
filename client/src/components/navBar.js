@@ -13,8 +13,8 @@ function NavBar() {
         navigate("/register");
       };
 
-      const redirectToBlog = () => {
-        navigate("/blog");
+      const redirectToTrending = () => {
+        navigate("/trending");
       };
 
       const redirectToCommunities = () => {
@@ -25,7 +25,7 @@ function NavBar() {
     <div className="nav-bar-styling">
         <button 
             className='button-navbar'
-            onClick={redirectToBlog}
+            onClick={redirectToTrending}
             >What's new</button>
         
         <button 

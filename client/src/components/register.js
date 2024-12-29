@@ -60,7 +60,7 @@ function Register() {
   return (
     <div className="register-page">
       <div className="register-form">
-      <h2>You aren't registered yet? </h2>
+      <h2>Would you like to be the part of our community?</h2>
       <p>Register here</p>
       
       <input 
