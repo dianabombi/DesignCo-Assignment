@@ -2,6 +2,9 @@ import React, {useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+
 
 function Login() {
 
@@ -33,29 +36,35 @@ function Login() {
     }
   };
 
+    const handleHomeClick = () => {
+      navigate("/");
+    };
+
   return (
-    <div className="login-container">
+    <div>
+      <FontAwesomeIcon className="home-icon" icon={faHouse} size="2x" onClick={handleHomeClick}/>
+      <div className="login-container"> 
+        <div className ="login-form">
+        <h2>Login Page</h2>
+        {error && <p className="error-message">{error}</p>}
+        <input 
+          type="text"
+          name="email"
+          placeholder="E-mail"
+          value={credentials.email}
+          onChange={handleChange}
+          />
 
-      <div className ="login-form">
-      <h2>Login Page</h2>
-      {error && <p className="error-message">{error}</p>}
-      <input 
-        type="text"
-        name="email"
-        placeholder="E-mail"
-        value={credentials.email}
-        onChange={handleChange}
-        />
+        <input 
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={credentials.password}
+          onChange={handleChange}
+          />
 
-      <input 
-        type="password"
-        name="password"
-        placeholder="Password"
-        value={credentials.password}
-        onChange={handleChange}
-        />
-
-      <button onClick={handleLogin}>Log In</button>
+        <button onClick={handleLogin}>Log In</button>
+        </div>
       </div>
     </div>
   );

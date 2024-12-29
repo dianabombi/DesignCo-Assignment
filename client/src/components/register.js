@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+
 function Register() {
 
   const [formData, setFormData] = useState({
@@ -57,7 +60,13 @@ function Register() {
     }
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   return (
+    <div>
+      <FontAwesomeIcon className="home-icon" icon={faHouse} size="2x" onClick={handleHomeClick}/>
     <div className="register-page">
       <div className="register-form">
       <h2>Would you like to be the part of our community?</h2>
@@ -111,6 +120,7 @@ function Register() {
       
       <button onClick={handleRegister}>REGISTER</button>
       </div>
+    </div>
     </div>
   )
 }
