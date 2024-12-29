@@ -228,3 +228,45 @@ hr {
 .home-icon {
   padding: 1rem;
 }
+
+/* HEADER of Dashboard */
+
+.header {
+  background-color: #133E87; 
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: end;
+
+}
+
+/* SIDEBAR */
+
+.sidebar {
+  position: fixed; /* Sidebar stays in place when scrolling */
+  top: 0; 
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #212830;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensures the sidebar is on top of other elements */
+}
+
+.main-content {
+  margin-left: 222px; /* Matches the sidebar's width + padding */
+  padding: 20px; 
+}
+
+.welcome-h1 {
+  margin: 1rem;
+}
+
+

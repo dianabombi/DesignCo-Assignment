@@ -136,7 +136,7 @@ function Blog() {
   };
 
   return (
-    <div>
+    <div className="main-content">
       <h1>{editIndex === null ? "Create a Post" : "Edit Post"}</h1>
 
       <div>
@@ -199,7 +199,9 @@ function Blog() {
       {filteredPosts.length > 0 ? (
 
         <div className="posts-container">
+
           <h2>TRENDING</h2>
+
           {filteredPosts.map((p, index) => (
             <div key={p._id} className="post-card">
               <h3>{p.title}</h3>

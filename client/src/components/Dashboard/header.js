@@ -29,8 +29,8 @@ function Header() {
 
   return (
     <div>
-      <header>
-        <nav>
+      <header className="header">
+        <nav className="navbar">
           <input
             type="text"
             placeholder="Search"

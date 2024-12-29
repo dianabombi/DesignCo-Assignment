@@ -11,7 +11,7 @@ function Sidebar() {
 
 
   return (
-    <aside>
+    <aside className="sidebar">
       <ul>
         <li>Home</li>
         <li>Analytics</li>

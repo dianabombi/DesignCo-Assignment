@@ -40,9 +40,9 @@ function Dashboard() {
   }
 
   return (
-    <div>
-      <h1>Welcome to your Dashboard, {user.name || "guest"}. </h1>
+    <div className="main-content">
       <Header />
+      <h1 className="welcome-h1">Welcome to your Dashboard, {user.name || "guest"}. </h1>
       <Sidebar />
       <Blog />
     </div>
