@@ -27,6 +27,7 @@ const login = async (req, res) => {
 
         let token = await jwt.sign(payload, process.env.SECRET_KEY);
         return res.send({message: "Login was successful.", token});
+        
     } catch (error) {
         return res.status(500).send({message:"Internal server error", error});
     }
@@ -62,15 +63,20 @@ const register = async (req, res) => {
 };
 
 // _____ GET USER DETAILS (DASHBOARD) _____
+
 const getMe = async (req, res) => {
-    const token = req.headers.authorization?.split(" ")[1]; 
+    const token = req.headers.authorization?.split(" ")[1];
+    console.log("Authorization Header:", req.headers.authorization); 
+
     if (!token) {
         return res.status(401).send({ message: "No token provided. Authorization denied." });
     }
 
     try {
-        const decoded = jwt.verify(token, +process.env.SECRET_KEY); 
-        const user = await User.findById(decoded.userId).select("-password"); // password excluded from User object with method "select"
+        const decoded = jwt.verify(token, process.env.SECRET_KEY); 
+        console.log("Decoded Token:", decoded); 
+
+        const user = await User.findById(decoded.userId).select("-password");
         if (!user) {
             return res.status(404).send({ message: "User not found." });
         }
@@ -84,9 +90,12 @@ const getMe = async (req, res) => {
             },
         });
     } catch (error) {
+        console.error("Error:", error); 
+        if (error.name === "JsonWebTokenError") {
+            return res.status(401).send({ message: "Invalid token." });
+        }
         return res.status(500).send({ message: "Server error.", error });
     }
 };
-
 
 module.exports = {login, register, getMe};

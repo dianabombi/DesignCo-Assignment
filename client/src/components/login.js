@@ -19,6 +19,9 @@ function Login() {
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:8000/users/login", credentials);
+
+      localStorage.setItem("token", response.data.token); // Save token
+      
       if (response.data.token) {
         navigate("/dashboard"); 
       } else {
