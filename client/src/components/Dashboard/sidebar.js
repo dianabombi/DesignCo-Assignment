@@ -12,7 +12,7 @@ function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <ul>
+      <ul className="sidebar-list">
         <li>Home</li>
         <li>Analytics</li>
         <li>Settings</li>

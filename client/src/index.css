@@ -260,6 +260,12 @@ hr {
   z-index: 1000; /* Ensures the sidebar is on top of other elements */
 }
 
+.sidebar-list {
+  list-style: none;
+  padding: 2rem;
+  margin: 0;
+}
+
 .main-content {
   margin-left: 222px; /* Matches the sidebar's width + padding */
   padding: 20px; 
