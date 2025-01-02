@@ -22,6 +22,7 @@ function Blog() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+      
         const response = await axios.get("http://localhost:8000/blog");
         setSubmittedPosts(response.data);
         setFilteredPosts(response.data);
@@ -88,16 +89,17 @@ function Blog() {
   const handleUpdate = async () => {
     try {
       const postId = submittedPosts[editIndex]._id;
+   
       const response = await axios.put(
         `http://localhost:8000/blog/${postId}`,
         post
       );
 
   const updatedPosts = [...submittedPosts];
-    updatedPosts[editIndex] = response.data;
+    updatedPosts[editIndex] = {...post, _id: postId};
+    
     setSubmittedPosts(updatedPosts);
     setFilteredPosts(updatedPosts);
-
       setPost({
         title: "",
         date: "",

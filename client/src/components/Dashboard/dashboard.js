@@ -2,47 +2,55 @@ import React from 'react';
 import Header from './header';
 import Sidebar from './sidebar';
 import Blog from './blog';
+import { jwtDecode } from "jwt-decode";
 
-import {useState, useEffect} from "react";
-import axios from "axios";
 
 function Dashboard() {
-  const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true);
+  let token ;
+  let decodedToken;
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const token = localStorage.getItem("token");
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     try {
+  //       const token = localStorage.getItem("token");
+  // decodedToken = jwtDecode(token)
 
-        if (!token) {
-          console.error("No token found in localStorage");
-          return;
-        }
+  //       if (!token) {
+  //         console.error("No token found in localStorage");
+  //         return;
+  //       }
 
-        const response = await axios.get("http://localhost:8000/me", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+  //       const response = await axios.get(`http://localhost:8000/${decodedToken.userId}`, {
+  //         headers: { Authorization: `Bearer ${token}` },
+  //       });
+  //       console.log(response.data)
+  //       setUser(response.data);
+  //     } catch (error) {
+  //         console.error("Error fetching user:", error.response?.data || error.message);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-        setUser(response.data);
-      } catch (error) {
-          console.error("Error fetching user:", error.response?.data || error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+  //   fetchUser();
+  // }, []);
 
-    fetchUser();
-  }, []);
+  try{
+    if(localStorage.getItem("token")){
+      token = localStorage.getItem("token");
+      decodedToken = jwtDecode(token)
 
-  if (loading) {
-    return <h1>Loading...</h1>;
+    }
   }
+  catch(err){
+    console.log(err)
+  }
+
 
   return (
     <div className="main-content">
       <Header />
-      <h1 className="welcome-h1">Welcome to your Dashboard, {user.name || "guest"}. </h1>
+      <h1 className="welcome-h1">Welcome to your Dashboard, {decodedToken.email || "guest"} . </h1>
       <Sidebar />
       <Blog />
     </div>
