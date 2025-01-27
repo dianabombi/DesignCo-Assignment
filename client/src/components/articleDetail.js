@@ -17,7 +17,7 @@ function ArticleDetail() {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/blog/${_id}`);
+        const response = await axios.get(`https://designco-assignment.onrender.com/blog/${_id}`);
         if (!response.ok) {
           throw new Error(`Something went wrong`, response.status);
         }

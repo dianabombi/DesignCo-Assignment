@@ -21,7 +21,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/users/login", credentials);
+      const response = await axios.post("https://designco-assignment.onrender.com/users/login", credentials);
 
       localStorage.setItem("token", response.data.token); // Save token
       

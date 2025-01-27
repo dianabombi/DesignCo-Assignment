@@ -20,7 +20,7 @@ function Dashboard() {
   //         return;
   //       }
 
-  //       const response = await axios.get(`http://localhost:8000/${decodedToken.userId}`, {
+  //       const response = await axios.get(`https://designco-assignment.onrender.com/${decodedToken.userId}`, {
   //         headers: { Authorization: `Bearer ${token}` },
   //       });
   //       console.log(response.data)

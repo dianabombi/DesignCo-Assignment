@@ -39,7 +39,7 @@ function Register() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/users/register", {
+      const response = await axios.post("https://designco-assignment.onrender.com/users/register", {
         name,
         surname,
         username,

@@ -23,7 +23,7 @@ function Blog() {
     const fetchPosts = async () => {
       try {
       
-        const response = await axios.get("http://localhost:8000/blog");
+        const response = await axios.get("https://designco-assignment.onrender.com/blog");
         setSubmittedPosts(response.data);
         setFilteredPosts(response.data);
       } catch (error) {
@@ -43,8 +43,8 @@ function Blog() {
 
     if (post.title && post.date && post.content && post.category) {
       try {
-        await axios.post("http://localhost:8000/blog", post);
-        const response = await axios.get("http://localhost:8000/blog");
+        await axios.post("https://designco-assignment.onrender.com/blog", post);
+        const response = await axios.get("https://designco-assignment.onrender.com/blog");
         setSubmittedPosts(response.data);
         setFilteredPosts(response.data);
       } catch (error) {
@@ -75,7 +75,7 @@ function Blog() {
       if (!postId) throw new Error("Post ID is missing.");
 
       console.log("Deleting post with ID:", postId);
-      await axios.delete(`http://localhost:8000/blog/${postId}`);
+      await axios.delete(`https://designco-assignment.onrender.com/blog/${postId}`);
 
       const updatedPosts = submittedPosts.filter((_, i) => i !== index);
       setSubmittedPosts(updatedPosts);
@@ -91,7 +91,7 @@ function Blog() {
       const postId = submittedPosts[editIndex]._id;
    
       const response = await axios.put(
-        `http://localhost:8000/blog/${postId}`,
+        `https://designco-assignment.onrender.com/blog/${postId}`,
         post
       );
 
